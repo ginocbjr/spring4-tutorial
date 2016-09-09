@@ -2,16 +2,33 @@ package com.ideyatech.hellospring.entity;
 
 import java.util.Date;
 
-public class Employee {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name = "EMPLOYEE")
+public class Employee extends BaseEntity {
 	
+	@Column(name = "FIRST_NAME")
 	private String firstName;
 	
+	@Column(name = "MIDDLE_NAME")
 	private String middleName;
 	
+	@Column(name = "LAST_NAME")
 	private String lastName;
 	
+	@Column(name = "EMAIL")
+	private String email;
+	
+	@Column(name = "AGE")
 	private Integer age;
 	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "BIRTHDATE")
 	private Date birthDate;
 
 	public String getFirstName() {
@@ -52,6 +69,16 @@ public class Employee {
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
+	}
+	
+	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override
